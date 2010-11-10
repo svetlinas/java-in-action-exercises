@@ -2,14 +2,14 @@ package jia.exercises.basics.svetlina.shopova;
 
 public class SumOfHundredPrime {
 
-	public static boolean isPrime(int a) {
-		int b = (int) Math.sqrt(a);
+	public static boolean isPrime(int digit) {
+		int squareDigit = (int) Math.sqrt(digit);
 		boolean isP = true;
-		if (a == 2)
+		if (digit == 2)
 			return true;
 		else {
-			for (int i = 2; i <= b; i++)
-				if (a % i == 0) {
+			for (int i = 2; i <= squareDigit; i++)
+				if (digit % i == 0) {
 					isP = false;
 					break;
 				}
