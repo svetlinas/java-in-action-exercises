@@ -20,8 +20,8 @@ public class SumOfHundredPrime {
 	
 	public static void main(String[] args) {
 		
-		// priemame 4e edinicata e estestveno prosto 4islo
-		int sum = 1;
+		// priemame 4e edinicata ne e estestveno prosto 4islo
+		int sum = 0;
 		for (int i = 2; i <= 1000; i++) {
 			if (isPrime(i)){
 				sum += i;
