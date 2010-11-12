@@ -3,7 +3,6 @@ package jia.exercises.basics.svetlina.shopova;
 import java.math.BigInteger;
 
 public class Factoriel {
-
 	public static BigInteger fact(int digit) {
 		BigInteger factoriel = BigInteger.valueOf(1);
 		for (long i = 1; i <= digit; i++) {

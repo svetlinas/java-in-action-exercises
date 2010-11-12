@@ -1,7 +1,8 @@
 package jia.exercises.basics.svetlina.shopova;
+	
 
+		
 public class SumOfHundredPrime {
-
 	public static boolean isPrime(int digit) {
 		int squareDigit = (int) Math.sqrt(digit);
 		boolean isP = true;

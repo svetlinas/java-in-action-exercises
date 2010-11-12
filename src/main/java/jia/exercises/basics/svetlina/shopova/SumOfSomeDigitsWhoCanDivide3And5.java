@@ -12,7 +12,7 @@ public class SumOfSomeDigitsWhoCanDivide3And5 {
 	public static void main(String[] args) {
 
 		int sum = 0;
-		
+
 		// nqma osoben smisyl da zapo4vame ot 1 ili 2
 		// tyi kato sme sigurni 4e ne delqt na 3 i 5
 		for (int i = 3; i <= 1000; i++) {
