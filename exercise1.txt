@@ -1,5 +1,0 @@
-Employees in the company
-
-Firstname	Lastname	Age	Position	Payment
-Eli	Spasova	23	humanR.	500
-Kiril	Georgiev	25	programer	0
