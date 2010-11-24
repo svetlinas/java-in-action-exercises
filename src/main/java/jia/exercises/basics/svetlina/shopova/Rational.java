@@ -1,8 +1,9 @@
 package jia.exercises.basics.svetlina.shopova;
 
 public class Rational {
-	// It's better for the realization the class to be named Rational and not Exercise6 ;)
-	
+	// It's better for the realization the class to be named Rational and not
+	// Exercise6 ;)
+
 	private static final int ADD = 0;
 	private static final int SUBSTRACT = 1;
 	private static final int MULTIPLY = 2;
@@ -11,12 +12,13 @@ public class Rational {
 	private int nominator;
 	private int denominator;
 
-	public Rational(int nominator, int dominator) {
-		if (dominator == 0)
+	public Rational(int nominator, int denominator) {
+		if (denominator == 0)
 			throw new RuntimeException("Dominator must not be zero!");
-		int nod = nod(nominator, dominator);
-		this.nominator = nominator / nod;
-		this.denominator = dominator / nod;
+		int nod1 = nod(nominator, denominator);
+		
+		this.nominator = nominator / nod1;
+		this.denominator = denominator / nod1;
 	}
 
 	public Rational reciprocal() {
@@ -28,6 +30,10 @@ public class Rational {
 
 	@Override
 	public String toString() {
+		if (denominator < 0) {
+			denominator = Math.abs(denominator);
+			nominator =  - nominator;
+		}
 		if (denominator == 1)
 			return nominator + "";
 		else
@@ -39,7 +45,7 @@ public class Rational {
 		return newRational;
 	}
 
-	public Rational subtract(Rational rational) {
+	public Rational substract(Rational rational) {
 		Rational newRational = operation(SUBSTRACT, rational);
 		return newRational;
 	}
@@ -59,7 +65,7 @@ public class Rational {
 		return newRational;
 	}
 
-	public Rational subtract(int integerNumber) {
+	public Rational substract(int integerNumber) {
 		Rational newRational = operation(SUBSTRACT, new Rational(integerNumber, 1));
 		return newRational;
 	}
@@ -79,19 +85,29 @@ public class Rational {
 		int remainder = remainder(nok, this.denominator);
 		int remainderR = remainder(nok, rational.denominator);
 		int newNominator = 0;
+		Rational newRational = null;
 
 		switch (operation) {
 		case 0:
 			newNominator = remainder * this.nominator + remainderR * rational.nominator;
+			newRational = new Rational(newNominator, nok);
+			break;
 		case 1:
 			newNominator = remainder * this.nominator - remainderR * rational.nominator;
+			newRational = new Rational(newNominator, nok);
+			break;
 		case 2:
 			newNominator = this.nominator * rational.nominator;
+			newRational = new Rational(newNominator, nok);
+			break;
 		case 3:
 			rational.reciprocal();
-			operation(MULTIPLY, rational);
+			newNominator = this.nominator * rational.nominator;
+			int newDenominator = this.denominator * rational.denominator;
+			newRational = new Rational(newNominator, newDenominator);
+			break;
 		}
-		return new Rational(newNominator, nok);
+		return newRational;
 	}
 
 	private int remainder(int nok, int den) {
